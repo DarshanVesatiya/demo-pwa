@@ -34,7 +34,7 @@ const config={
     hosts: [
       'localhost:27017',
     ],
-    database: 'demo-pwa',
+    database: 'pwa_demo',
     username: '',
     password: '',
     debug: true,

@@ -1,4 +1,5 @@
 const config = require('../config/environments');
+const { getUserModel, getItemModel, getOrderModel } = require('./models');
 
 // Setup MySQL
 const mysql = require('mysql2');
@@ -76,6 +77,15 @@ getCockroachDBConnection = async function(dbName) {
 const makeSampleDb=require('./sampledb');
 const sampleDb = makeSampleDb({ getProxyNodeConnection,getMasterNodeConnection, getCockroachDBConnection });
 
+const makeUserDb = require('./user.db');
+const userDb = makeUserDb({getUserModel});
+
+const makeItemDb = require('./item.db');
+const itemDb = makeItemDb({getItemModel});
+
+const makeOrderDb = require('./order.db');
+const orderDb = makeOrderDb({getOrderModel});
+
 // Export all DBs
-const dbs={sampleDb};
+const dbs={sampleDb, userDb, itemDb, orderDb};
 module.exports={getProxyNodeConnection,getMasterNodeConnection,getCockroachDBConnection,...dbs};
