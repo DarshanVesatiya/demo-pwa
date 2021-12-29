@@ -15,6 +15,7 @@ module.exports = function makeOrderModel({getMongooseConnection}) {
         totalAmount: {type: Number, required: true},
         status: {type: String, trim: true, required: true},
         address: {type: String, trim: true, required: true},
+        date: {type: Date, default: Date.now, required: true},
         items: [itemSchema],
       }, {collection: 'orders'});
       return dbConnection.model('Orders', orderSchema);
