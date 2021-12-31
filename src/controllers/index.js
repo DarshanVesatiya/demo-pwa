@@ -6,7 +6,9 @@ const {
   getItems,
   getOrders,
   addOrder,
-  updateOrderStatus
+  updateOrderStatus,
+  addSubscription,
+  getSubscription
 } = require('../use-cases');
 const { formatResponse, formatError } = require('./format-response');
 
@@ -18,6 +20,8 @@ const makeGetItemsAction = require('./get-items');
 const makeGetOrdersAction = require('./get-orders');
 const makeAddOrderAction = require('./add-order');
 const makeUpdateOrderStatusAction = require('./update-order-status');
+const makeAddSubscriptionAction = require('./add-subscription');
+const makeGetSubscriptionAction = require('./get-subscription');
 
 // Make Actions
 const greetAction = makeGreetAction({ greetWelcomeToApp: greetWelcomeToApp })
@@ -51,6 +55,16 @@ const updateOrderStatusAction = makeUpdateOrderStatusAction({
   formatResponse,
   formatError
 });
+const addSubscriptionAction = makeAddSubscriptionAction({
+  addSubscription,
+  formatResponse,
+  formatError
+});
+const getSubscriptionAction = makeGetSubscriptionAction({
+  getSubscription,
+  formatResponse,
+  formatError
+});
 
 // Create Controller Object
 const controller = Object.freeze({
@@ -60,7 +74,9 @@ const controller = Object.freeze({
   getItemsAction,
   getOrdersAction,
   addOrderAction,
-  updateOrderStatusAction
+  updateOrderStatusAction,
+  addSubscriptionAction,
+  getSubscriptionAction
 });
 
 // Export Controller

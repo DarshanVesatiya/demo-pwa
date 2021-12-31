@@ -1,5 +1,5 @@
 const config = require('../config/environments');
-const { getUserModel, getItemModel, getOrderModel } = require('./models');
+const { getUserModel, getItemModel, getOrderModel, getSubscriptionModel } = require('./models');
 
 // Setup MySQL
 const mysql = require('mysql2');
@@ -86,6 +86,9 @@ const itemDb = makeItemDb({getItemModel});
 const makeOrderDb = require('./order.db');
 const orderDb = makeOrderDb({getOrderModel});
 
+const makeSubscriptionDb = require('./subscription.db');
+const subscriptionDb = makeSubscriptionDb({getSubscriptionModel});
+
 // Export all DBs
-const dbs={sampleDb, userDb, itemDb, orderDb};
+const dbs={sampleDb, userDb, itemDb, orderDb, subscriptionDb};
 module.exports={getProxyNodeConnection,getMasterNodeConnection,getCockroachDBConnection,...dbs};

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "generate-keys": "web-push generate-vapid-keys"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "mysql2": "^2.0.2",
     "pg": "^7.14.0",
     "q": "^1.5.1",
-    "utilities": "git+https://devang142:X3iMBqr5_9cqSoJyJJXG@git.rapidops.com/rapid-access/utilities.git"
+    "utilities": "git+https://devang142:X3iMBqr5_9cqSoJyJJXG@git.rapidops.com/rapid-access/utilities.git",
+    "web-push": "^3.4.5"
   },
   "devDependencies": {
     "cucumber": "^6.0.5"
