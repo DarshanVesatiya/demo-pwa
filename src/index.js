@@ -13,7 +13,7 @@ const logger=Logger({
   }
 });
 global.logger=logger;
-
+process.env.NODE_PORT = process.env.PORT;
 const RestService =require('./rest-service').RestService;
 const rapidHttpServer=require('http-server').makeHttpServer(RestService, logger,tracer);
 rapidHttpServer.initWorker();
