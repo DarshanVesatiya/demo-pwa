@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm test",
     "start": "node src/index.js",
-    "generate-keys": "web-push generate-vapid-keys"
+    "generate-keys": "web-push generate-vapid-keys",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
