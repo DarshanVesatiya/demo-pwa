@@ -32,11 +32,11 @@ const config={
   },
   mongo: {
     hosts: [
-      'localhost:27017',
+      'cluster0.f17uh.mongodb.net',
     ],
     database: 'pwa_demo',
-    username: '',
-    password: '',
+    username: 'satish',
+    password: 'mca6380Dd',
     debug: true,
     replicaSet: '',
     server: {

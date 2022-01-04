@@ -19,9 +19,10 @@ async function prepareMongooseConnection({mongo, name = 'main'}) {
 
   Mongoose.set('debug', mongo.debug ? {color: false}: false);
 
-  // const credentials = mongo.username ? `${mongo.username}:${mongo.password}@` : '';
+  const credentials = mongo.username ? `${mongo.username}:${mongo.password}@` : '';
+  const mongoConnectionURI = `mongodb+srv://${mongo.username}:${mongo.password}@cluster0.f17uh.mongodb.net/${mongo.database}`;
   // const mongoConnectionURI = `mongodb://${credentials}${mongo.hosts}/${mongo.database}?authSource=admin${mongo.replicaSet ? `&replicaSet=${mongo.replicaSet}` : ''}`;
-  const mongoConnectionURI = `mongodb://${mongo.hosts}/${mongo.database}`;
+  // const mongoConnectionURI = `mongodb://${mongo.hosts}/${mongo.database}`;
 
   try {
     connections[name] = await Mongoose.createConnection(mongoConnectionURI, options);
