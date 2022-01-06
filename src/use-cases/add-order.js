@@ -10,6 +10,10 @@ module.exports= function makeAddOrder({orderDb, subscriptionDb, webPush}) {
     );
     
     const subData = await subscriptionDb.getSubscription({userId});
+    if (!subData) {
+      return orderData; 
+    }
+
     const pushConfig = {
       endpoint: subData['endpoint'],
       keys: {
